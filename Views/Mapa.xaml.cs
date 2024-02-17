@@ -26,14 +26,16 @@ public partial class Mapa : ContentPage
     }
     private void AddPinToMap()
     {
+        // Crear un nuevo objeto Pin con una etiqueta y ubicación específicas
         Pin pin = new Pin
         {
             Label = descripcion,
             Location = new Location(latitud, longitud)
         };
 
-        hola.Pins.Add(pin);
-        hola.MoveToRegion(MapSpan.FromCenterAndRadius(pin.Location, Distance.FromMiles(1)));
+        // Agregar el pin al mapa. La variable "hola" se asume que es un objeto que representa el mapa.
+        punto.Pins.Add(pin);
+        punto.MoveToRegion(MapSpan.FromCenterAndRadius(pin.Location, Distance.FromMiles(1)));
     }
 
 

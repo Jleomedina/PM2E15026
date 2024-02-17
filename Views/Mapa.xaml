@@ -7,7 +7,7 @@
 
 
     <StackLayout>
-        <maps:Map x:Name="hola" MapType="Hybrid"/>
+        <maps:Map x:Name="punto" MapType="Hybrid"/>
 
     </StackLayout>
 

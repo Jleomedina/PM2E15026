@@ -47,6 +47,8 @@
             <Button x:Name="btnSitios" Text="Lista Sitios" Clicked="btnSitios_Clicked" Grid.Row="1" Grid.Column="1" WidthRequest="170" BackgroundColor="#4CAF50" TextColor="White" TranslationY="45"/>
         </Grid>
 
-        <Button x:Name="btnSalir" Text="Salir App" Clicked="btnSalir_Clicked" BackgroundColor="#4CAF50" TextColor="White" TranslationY="45"/>
+        
+		<Button x:Name="btnSalir" Text="Salir App" Clicked="btnSalir_Clicked" BackgroundColor="#4CAF50" TextColor="White" TranslationY="45"/>
     </VerticalStackLayout>
+	
 </ContentPage>
