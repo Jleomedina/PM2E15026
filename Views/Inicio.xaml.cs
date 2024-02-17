@@ -17,7 +17,7 @@ public partial class Inicio : ContentPage
     {
         base.OnAppearing();
 
-        // Verificar y solicitar permisos de ubicación
+        // Verificacion y soliCITUD DE permisos de ubicación
         var status = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
         if (status != PermissionStatus.Granted)
         {
@@ -29,7 +29,7 @@ public partial class Inicio : ContentPage
             }
         }
 
-        // Obtener la ubicación actual
+        // ObtenCION la ubicación actual
         try
         {
             var location = await Geolocation.GetLocationAsync();
@@ -57,6 +57,7 @@ public partial class Inicio : ContentPage
         }
     }
 
+    // Método para obtener la representación en Base64 de la foto
     public String GetImage64()
     {
         if (photo != null)
@@ -96,6 +97,7 @@ public partial class Inicio : ContentPage
     {
         if (double.TryParse(Latitud.Text, out double latitud) && double.TryParse(Longitud.Text, out double longitud))
         {
+            // Creación de una instancia de Ubicaciones con los datos ingresados
             var lugar = new Modelos.Ubicaciones
             {
                 Latitud = latitud,
@@ -111,11 +113,12 @@ public partial class Inicio : ContentPage
         }
         else
         {
-            // Manejo de error si la entrada de Latitud o Longitud no es un número válido
+            // Manejo de error  si no es un num valido
             await DisplayAlert("Error", "La Latitud y la Longitud deben ser valores numéricos.", "OK");
         }
     }
 
+    // Manejador de evento para el botón "Sitios"
     private async void btnSitios_Clicked(object sender, EventArgs e)
     {
         var Sitios = new ListaUbicaciones();
@@ -125,15 +128,17 @@ public partial class Inicio : ContentPage
 
     private async void btnSalir_Clicked(object sender, EventArgs e)
     {
-
+        //aun no implementado
     }
 
+    // Manejador de evento para el botón "Foto"
     private async void btnFoto_Clicked(object sender, EventArgs e)
     {
         photo = await MediaPicker.CapturePhotoAsync();
 
         if (photo != null)
         {
+            // Mostrar la foto capturada en la interfaz de usuario y guardarla localmente
             string path = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
             using Stream sourcephoto = await photo.OpenReadAsync();
             using FileStream Streamlocal = File.OpenWrite(path);

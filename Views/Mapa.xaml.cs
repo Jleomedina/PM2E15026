@@ -13,27 +13,32 @@ public partial class Mapa : ContentPage
     string descripcion;
 
 
+    // Constructor que toma la latitud, longitud y descripción como parámetros
     public Mapa(double latitud, double longitud, string descripcion)
     {
+        // Inicializar las variables con los valores proporcionados
         InitializeComponent();
 
         this.latitud = latitud;
         this.longitud = longitud;
         this.descripcion = descripcion;
 
+        // llamar al Método para agregar un pin al mapa
         AddPinToMap();
 
     }
+
+    // Método para agregar un pin al mapa
     private void AddPinToMap()
     {
-        // Crear un nuevo objeto Pin con una etiqueta y ubicación específicas
+
         Pin pin = new Pin
         {
             Label = descripcion,
             Location = new Location(latitud, longitud)
         };
 
-        // Agregar el pin al mapa. La variable "hola" se asume que es un objeto que representa el mapa.
+        
         punto.Pins.Add(pin);
         punto.MoveToRegion(MapSpan.FromCenterAndRadius(pin.Location, Distance.FromMiles(1)));
     }

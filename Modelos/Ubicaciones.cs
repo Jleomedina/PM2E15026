@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace PM2E15026.Modelos
 {
+    // Atributo Table indica el nombre de la tabla en la base de datos SQLite
     [Table("Ubicaciones")]
     public class Ubicaciones
     {

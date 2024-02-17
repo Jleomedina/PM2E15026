@@ -15,10 +15,14 @@ namespace PM2E15026.Controles
 
             if (value != null)
             {
+                // Convierte la cadena Base64 a un arreglo de bytes
                 String Base64 = (String)value;
                 byte[] fotobyte = System.Convert.FromBase64String(Base64);
+
+                // Crea un flujo de memoria a partir del arreglo de bytes
                 var stream = new MemoryStream(fotobyte);
 
+                // Crea un objeto ImageSource a partir del flujo de memoria
                 imageSource = ImageSource.FromStream(() => stream);
             }
             return imageSource;
