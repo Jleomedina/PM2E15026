@@ -1,47 +1,53 @@
-using AndroidX.Lifecycle;
 using Microsoft.Maui.Controls.Maps;
 using Microsoft.Maui.Maps;
-using static Android.Icu.Text.Transliterator;
 
-namespace PM2E15026.Views;
-
-public partial class Mapa : ContentPage
+namespace PM2E15026.Views
 {
-
-    double latitud;
-    double longitud;
-    string descripcion;
-
-
-    // Constructor que toma la latitud, longitud y descripción como parámetros
-    public Mapa(double latitud, double longitud, string descripcion)
+    public partial class Mapa : ContentPage
     {
-        // Inicializar las variables con los valores proporcionados
-        InitializeComponent();
+        double latitud;
+        double longitud;
+        string descripcion;
 
-        this.latitud = latitud;
-        this.longitud = longitud;
-        this.descripcion = descripcion;
-
-        // llamar al Método para agregar un pin al mapa
-        AddPinToMap();
-
-    }
-
-    // Método para agregar un pin al mapa
-    private void AddPinToMap()
-    {
-
-        Pin pin = new Pin
+        // Constructor que toma la latitud, longitud y descripción como parámetros
+        public Mapa(double latitud, double longitud, string descripcion)
         {
-            Label = descripcion,
-            Location = new Location(latitud, longitud)
-        };
+            // Inicializar las variables con los valores proporcionados
+            InitializeComponent();
 
-        
-        punto.Pins.Add(pin);
-        punto.MoveToRegion(MapSpan.FromCenterAndRadius(pin.Location, Distance.FromMiles(1)));
+            this.latitud = latitud;
+            this.longitud = longitud;
+            this.descripcion = descripcion;
+
+            // llamar al Método para agregar un pin al mapa
+            AddPinToMap();
+        }
+
+        // Método para agregar un pin al mapa
+        private void AddPinToMap()
+        {
+            Pin pin = new Pin
+            {
+                Label = descripcion,
+                Location = new Location(latitud, longitud)
+            };
+
+            punto.Pins.Add(pin);
+            punto.MoveToRegion(MapSpan.FromCenterAndRadius(pin.Location, Distance.FromMiles(1)));
+        }
+
+        // Evento de clic para el botón de compartir ubicación
+        private async void CompartirUbicacion_Clicked(object sender, EventArgs e)
+        {
+            // Crear un texto con la ubicación
+            string ubicacionTexto = $"Mi ubicación: {latitud}, {longitud}";
+
+            // Compartir la ubicación a través de la aplicación predeterminada de mensajería
+            await Share.RequestAsync(new ShareTextRequest
+            {
+                Text = ubicacionTexto,
+                Title = "Compartir Ubicación"
+            });
+        }
     }
-
-
 }

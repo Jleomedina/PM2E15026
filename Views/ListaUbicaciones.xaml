@@ -5,58 +5,51 @@
              xmlns:conver="clr-namespace:PM2E15026.Controles"
              Title="Ubicaciones Guardadas">
 
-
-
     <ContentPage.Resources>
-        <conver:Base64Image x:Key="BaseArray"/>
+        <conver:Base64Image x:Key="BaseArray" />
     </ContentPage.Resources>
-
 
     <ContentPage.Content>
         <CollectionView x:Name="ubicaciones"
-                    SelectionMode="Single"
-                    SelectionChanged="ubicaciones_SelectionChanged">
-
+                        SelectionMode="Single"
+                        SelectionChanged="ubicaciones_SelectionChanged">
             <CollectionView.ItemsLayout>
-                <LinearItemsLayout Orientation="Vertical"
-                               ItemSpacing="20">
-                </LinearItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="20" />
             </CollectionView.ItemsLayout>
-
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-
-                    <StackLayout>
+                    <StackLayout Spacing="10" Padding="10" BackgroundColor="#EDEDED">
 
                         <Image x:Name="foto"
-                       WidthRequest="200"
-                       HeightRequest="100"
-                       Aspect="AspectFill"
-                       HorizontalOptions="CenterAndExpand"   
-                       TranslationY="15"
-                       Source="{Binding foto , Converter = {StaticResource BaseArray}}"/>
+                               WidthRequest="200"
+                               HeightRequest="100"
+                               Aspect="AspectFill"
+                               HorizontalOptions="CenterAndExpand"
+                               Source="{Binding foto, Converter={StaticResource BaseArray}}" />
 
-                        <Label>
+                        <Label TextColor="#808080" FontSize="14">
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span Text="{Binding Latitud}" TextColor="#00000000"/>
+                                    <Span Text="Latitud: " FontAttributes="Bold" />
+                                    <Span Text="{Binding Latitud}" />
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
 
-                        <Label>
+                        <Label TextColor="#808080" FontSize="14">
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span Text="{Binding Longitud}" TextColor="#00000000" />
+                                    <Span Text="Longitud: " FontAttributes="Bold" />
+                                    <Span Text="{Binding Longitud}" />
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
 
-                        <Label>
+                        <Label TextColor="#000000" FontSize="15">
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span Text="Descripcion: " FontSize="15" />
+                                    <Span Text="Descripción: " FontAttributes="Bold" />
                                     <Span Text="{Binding Desc}" />
                                 </FormattedString>
                             </Label.FormattedText>
@@ -69,3 +62,4 @@
     </ContentPage.Content>
 
 </ContentPage>
+

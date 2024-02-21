@@ -108,13 +108,13 @@ public partial class Inicio : ContentPage
 
             if (await App.Database.StoreSitios(lugar) > 0)
             {
-                await DisplayAlert("Aviso", "Registro ingresado con éxito!!", "OK");
+                await DisplayAlert("Aviso", "Registro ingresado con exitosamente", "OK");
             }
         }
         else
         {
             // Manejo de error  si no es un num valido
-            await DisplayAlert("Error", "La Latitud y la Longitud deben ser valores numéricos.", "OK");
+            await DisplayAlert("Error", "No se encuentra la Latitud y la Longitud.", "OK");
         }
     }
 
@@ -129,6 +129,7 @@ public partial class Inicio : ContentPage
     private async void btnSalir_Clicked(object sender, EventArgs e)
     {
         //aun no implementado
+        Application.Current.Quit(); 
     }
 
     // Manejador de evento para el botón "Foto"

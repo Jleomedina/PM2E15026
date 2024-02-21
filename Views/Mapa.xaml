@@ -2,13 +2,12 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PM2E15026.Views.Mapa"
-             xmlns:maps="http://schemas.microsoft.com/dotnet/2021/maui/maps">
-
-
+             xmlns:maps="http://schemas.microsoft.com/dotnet/2021/maui/maps"
+             xmlns:essentials="clr-namespace:Microsoft.Maui.Essentials;assembly=Microsoft.Maui.Essentials">
 
     <StackLayout>
         <maps:Map x:Name="punto" MapType="Hybrid"/>
-
+        <Button Text="Compartir Ubicación" Clicked="CompartirUbicacion_Clicked"/>
     </StackLayout>
 
 </ContentPage>

@@ -1,7 +1,6 @@
 using Microsoft.Maui.Controls.Maps;
 using Microsoft.Maui.Maps;
 using PM2E15026.Modelos;
-using static Android.Icu.Text.Transliterator;
 using static PM2E15026.Views.Mapa;
 
 namespace PM2E15026.Views;
